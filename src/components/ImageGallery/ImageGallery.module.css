@@ -1,0 +1,19 @@
+.gallery_container {
+    padding: 16px 8px 8px 8px;
+}
+
+.gallery {
+    margin: 0 auto;
+    
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    gap: 12px;
+}
+
+.gallery_item {
+    width: calc((100% - 3 * 12px) / 4);
+    height: 200px;
+}
