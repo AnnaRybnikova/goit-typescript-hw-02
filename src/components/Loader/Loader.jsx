@@ -1,16 +1,18 @@
 import { ThreeCircles } from 'react-loader-spinner'
+import s from './Loader.module.css';
 
 const Loader = () => {
     return (
-        <div>
+        <div className={s.wrapper}>
             <ThreeCircles
+                className={s.wrapper}
                 visible={true}
-                height="100"
-                width="100"
-                color="#4fa94d"
+                height="80"
+                width="80"
+                innerCircleColor="rgb(9, 57, 91)"
+                middleCircleColor="rgb(134, 206, 251)"
+                outerCircleColor="rgb(82, 187, 253)"
                 ariaLabel="three-circles-loading"
-                wrapperStyle={{}}
-                wrapperClass=""
             />
         </div>
     )
