@@ -1,5 +1,9 @@
 :root {
+  --black: #000;
   --blue: rgb(9, 57, 91);
+  --light-blue: rgb(134, 206, 251);
+  --middle-blue: rgb(82, 187, 253);
+  --alice-blue: aliceblue;
 }
 
 *,

@@ -4,7 +4,7 @@
 
     font-size: medium;
 
-    background-color: rgb(134, 206, 251);
+    background-color: var(--light-blue);
     color: var(--blue);
     border: solid 1px var(--blue);
     border-radius: 2px;
@@ -17,5 +17,5 @@
 .load_btn:hover {
     background-color: var(--blue);
     border-color: var(--blue);
-    color: aliceblue;
+    color: var(--alice-blue);
 }

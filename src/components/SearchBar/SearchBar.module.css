@@ -11,12 +11,12 @@
 }
 
 .field {
-    background-color: aliceblue;
+    background-color: var(--alice-blue);
     border-radius: 2px;
     padding: 8px;
     width: 240px;
-    border: solid 0.5px #000;
-    box-shadow: inset 0px 0px 2px #000;
+    border: solid 0.5px var(--black);
+    box-shadow: inset 0px 0px 2px var(--black);
 
     margin-right: 12px;
 
@@ -24,12 +24,12 @@
 }
 
 .field:hover {
-    border-color: rgb(134, 206, 251);
+    border-color: var(--light-blue);
 }
 
 .submit_button {
-    background-color: rgb(134, 206, 251);
-    border: solid 1px aliceblue;
+    background-color: var(--light-blue);
+    border: solid 1px var(--alice-blue);
     border-radius: 2px;
     padding: 4px 8px;
 
@@ -38,6 +38,6 @@
 }
 
 .submit_button:hover {
-    background-color: rgb(82, 187, 253);
-    border-color: rgb(82, 187, 253);
+    background-color: var(--middle-blue);
+    border-color: var(--middle-blue);
 }
