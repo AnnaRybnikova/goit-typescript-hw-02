@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import toast from 'react-hot-toast';
-import './App.css'
 import SearchBar from './components/SearchBar/SearchBar.jsx'
 import { fetchImages } from './services/api.js'
 import Loader from './components/Loader/Loader.jsx';

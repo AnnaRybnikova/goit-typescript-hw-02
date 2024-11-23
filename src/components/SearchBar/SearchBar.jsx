@@ -1,6 +1,7 @@
 import { Formik, Form, Field } from 'formik';
 import toast from 'react-hot-toast';
 import PropTypes from 'prop-types';
+import s from './SearchBar.module.css';
 
 const SearchBar = ({ query, handleChange }) => {
     const initialValues = {
@@ -20,17 +21,18 @@ const SearchBar = ({ query, handleChange }) => {
     }
 
     return (
-        <header>
+        <header className={s.header}>
             <Formik initialValues={initialValues} onSubmit={(values) => {handleSubmit(values)}}>
-                <Form>
+                <Form className={s.form}>
                     <Field
                         name="search"
+                        className={s.field}
                         type="text"
                         autoComplete="off"
                         autoFocus
                         placeholder="Search images and photos"
                     />
-                    <button type="submit">Search</button>
+                    <button className={s.submit_button} type="submit">Search</button>
                 </Form>
             </Formik>
         </header>
