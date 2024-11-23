@@ -80,3 +80,9 @@ img {
   height: 100%;
   object-fit: cover;
 }
+
+.toaster {
+  background: var(--alice-blue);
+  color: var(--blue);
+  border: 1px solid var(--blue);
+}

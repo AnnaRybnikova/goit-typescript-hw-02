@@ -67,7 +67,8 @@ function App() {
     <>
       <SearchBar query={query} handleChange={handleChangeQuery} />
       <ImageGallery images={images} onImageClick={openModalWithImage} />
-      {totalPages > page && images.length !== 0 && <LoadMoreBtn onClick={() => setPage(prev => prev+1)} />}
+      {totalPages > page && images.length !== 0 && !isLoading
+        && <LoadMoreBtn onClick={() => setPage(prev => prev + 1)} />}
       {isLoading && <Loader />}
       {isError && <ErrorMessage>Something went wrong! Refresh the page...</ErrorMessage>}
       {modalIsOpen && <ImageModal
