@@ -1,5 +1,6 @@
 .gallery_image {
     transition: transform 0.2s ease-in-out;
+    cursor: zoom-in;
 }
 
 .gallery_image:hover {

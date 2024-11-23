@@ -11,7 +11,6 @@ createRoot(document.getElementById('root')).render(
       position='top-right'
       reverseOrder={false}
       toastOptions={{
-        // Define default options
         className: ".toaster",
         duration: 2000,
       }}

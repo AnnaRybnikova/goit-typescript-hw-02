@@ -1,14 +1,15 @@
 .overlay {
     position: fixed;
     inset: 0px;
-    background-color: rgba(86, 86, 86, 0.442);
+    background-color: var(--modal-background);
+    padding: 24px;
+    cursor: pointer;
 }
 
-.overlay_content {
+.modal_content {
+    position: absolute;
     top: 50%;
     left: 50%;
-    right: auto;
-    bottom: auto;
-    margin-right: -50%;
     transform: translate(-50%, -50%);
+    cursor: auto;
 }

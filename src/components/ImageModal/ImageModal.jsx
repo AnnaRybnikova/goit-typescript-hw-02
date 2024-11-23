@@ -12,7 +12,7 @@ const ImageModal = ({ isOpen, onClose, image }) => {
             <Modal
                 isOpen={isOpen}
                 onRequestClose={onClose()}
-                style={s.overlay_content}
+                className={s.modal_content}
                 contentLabel="Example Modal"
                 overlayClassName={clsx(s.overlay, 'ReactModal__Overlay')}
             >
