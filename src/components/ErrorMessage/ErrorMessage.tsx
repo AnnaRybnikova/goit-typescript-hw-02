@@ -1,16 +1,16 @@
-import PropTypes from 'prop-types';
+import { FC } from 'react';
 import s from './ErrorMessage.module.css'
 
-const ErrorMessage = ({ children }) => {
+interface ErrorMessageProps {
+  children: React.ReactNode;
+}
+
+const ErrorMessage: FC<ErrorMessageProps> = ({ children }) => {
   return (
       <div className={s.error_msg_container}>
           <h2 className={s.error_header}>{children}</h2>
       </div>
   )
-}
-
-ErrorMessage.propTypes = {
-    children: PropTypes.string.isRequired,
 }
 
 export default ErrorMessage

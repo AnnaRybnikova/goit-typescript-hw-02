@@ -1,31 +1,33 @@
 import { useState, useEffect } from 'react'
 import toast from 'react-hot-toast';
-import SearchBar from './components/SearchBar/SearchBar.jsx'
+import SearchBar from './components/SearchBar/SearchBar.js'
 import { fetchImages } from './services/api.js'
-import Loader from './components/Loader/Loader.jsx';
-import ErrorMessage from './components/ErrorMessage/ErrorMessage.jsx';
-import ImageGallery from './components/ImageGallery/ImageGallery.jsx';
-import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn.jsx';
-import ImageModal from './components/ImageModal/ImageModal.jsx';
+import Loader from './components/Loader/Loader.js';
+import ErrorMessage from './components/ErrorMessage/ErrorMessage.js';
+import ImageGallery from './components/ImageGallery/ImageGallery.js';
+import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn.js';
+import ImageModal from './components/ImageModal/ImageModal.js';
+import { Image } from './types.js';
+import { initialCurrentImage } from './initials.js';
 
-function App() {
-  const [query, setQuery] = useState('');
-  const [images, setImages] = useState([]);
-  const [currentImage, setCurrentImage] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+function App() { 
+  const [query, setQuery] = useState<string>('');
+  const [images, setImages] = useState<Image[]>([]);
+  const [currentImage, setCurrentImage] = useState<Image>(initialCurrentImage);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(1);
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
-  const openModalWithImage = (image) => {
+  const openModalWithImage = (image: Image) => {
     setModalIsOpen(true);
     setCurrentImage(image);
   }
 
   const closeModal = () => {
     setModalIsOpen(false);
-    setCurrentImage({});
+    setCurrentImage(initialCurrentImage);
   }
 
   useEffect(() => {
@@ -37,7 +39,7 @@ function App() {
   }, [totalPages, page]);
 
   useEffect(() => {
-    const getData = async () => {
+    const getData = async (): Promise<void> => {
       if (!query) return;
       try {
         setIsLoading(true);
@@ -57,7 +59,7 @@ function App() {
     getData();
   }, [query, page]);
 
-  const handleChangeQuery = query => {
+  const handleChangeQuery = (query: string) => {
     setImages([]);
     setQuery(query);
     setPage(1);
@@ -73,7 +75,7 @@ function App() {
       {isError && <ErrorMessage>Something went wrong! Refresh the page...</ErrorMessage>}
       {modalIsOpen && <ImageModal
         isOpen={modalIsOpen}
-        onClose={() => closeModal}
+        onClose={() => closeModal()}
         image={currentImage}
       />}
     </>

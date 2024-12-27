@@ -5,7 +5,6 @@ const Loader = () => {
     return (
         <div className={s.wrapper}>
             <ThreeCircles
-                className={s.wrapper}
                 visible={true}
                 height="80"
                 width="80"

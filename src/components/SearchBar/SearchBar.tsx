@@ -1,14 +1,19 @@
+import { FC } from 'react';
 import { Formik, Form, Field } from 'formik';
 import toast from 'react-hot-toast';
-import PropTypes from 'prop-types';
 import s from './SearchBar.module.css';
 
-const SearchBar = ({ query, handleChange }) => {
+interface SearchBarProps {
+    query: string;
+    handleChange: (searchQuery: string) => void;
+}
+
+const SearchBar: FC<SearchBarProps> = ({ query, handleChange }) => {
     const initialValues = {
         search: query,
     };
 
-    const handleSubmit = (values) => {
+    const handleSubmit = (values: {search: string}) => {
         if (!values.search) {
             toast.error('Please enter search query!');
             return;
@@ -37,11 +42,6 @@ const SearchBar = ({ query, handleChange }) => {
             </Formik>
         </header>
     )
-}
-
-SearchBar.propTypes = {
-    query: PropTypes.string.isRequired,
-    handleChange: PropTypes.func.isRequired,
 }
 
 export default SearchBar

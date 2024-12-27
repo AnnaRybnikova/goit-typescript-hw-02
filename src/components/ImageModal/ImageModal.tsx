@@ -1,17 +1,24 @@
+import { FC } from 'react';
 import Modal from 'react-modal';
-import PropTypes from 'prop-types';
 import s from './ImageModal.module.css';
 import clsx from "clsx";
+import { Image } from '../../types';
 
 Modal.setAppElement('#root');
 
-const ImageModal = ({ isOpen, onClose, image }) => {
-    
+interface ImageModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+    image: Image;
+}
+
+const ImageModal: FC<ImageModalProps> = ({ isOpen, onClose, image }) => {
+
     return (
         <div>
             <Modal
                 isOpen={isOpen}
-                onRequestClose={onClose()}
+                onRequestClose={() => onClose()}
                 className={s.modal_content}
                 contentLabel="Example Modal"
                 overlayClassName={clsx(s.overlay, 'ReactModal__Overlay')}
@@ -20,12 +27,6 @@ const ImageModal = ({ isOpen, onClose, image }) => {
             </Modal>
         </div>
   )
-}
-
-ImageModal.propTypes = {
-    isOpen: PropTypes.bool.isRequired,
-    onClose: PropTypes.func.isRequired,
-    image: PropTypes.object.isRequired,
 }
 
 export default ImageModal
